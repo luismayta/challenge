@@ -57,7 +57,7 @@ Figure 1:
 An unauthenticated user should first be prompted to log in, sign up, or
 reset their password:
 
-.. image:: assets/images/ch-login.png
+.. image:: assets/images/ch-loggin.png
   :width: 100%
   :alt: Login platform
 
@@ -78,7 +78,7 @@ sign up page.
 Figure 3:
 
 
-After signing up, users will not belong to an company, so when they
+After signing up, users doesn't belong to any company yet, so when they
 log in for the first time, they should be prompted to join an
 company (or create a new one).
 
@@ -90,8 +90,7 @@ company (or create a new one).
 Figure 4:
 
 
-Users should be able to edit all companies (i.e. their names and
-others).
+Users should be able to update the information of its company (i.e. their names, products, others).
 
 .. image:: assets/images/ch-update-company.png
   :width: 100%
@@ -100,7 +99,7 @@ others).
 Figure 5:
 
 
-Once a user has joined an company, the home page should change to
+Once a user joins a company, the home page should change to
 become an overview of actions for that company: viewing products,
 editing the company, or leaving the company.
 
@@ -110,20 +109,8 @@ editing the company, or leaving the company.
 
 Figure 6:
 
-
-Leaving an company should return the user to the state they are in
-just after they sign up, i.e. not belonging to any organisations. The
-departed user's product should be deleted.
-
-.. image:: assets/images/ch-company-leave.png
-  :width: 100%
-  :alt: leave company
-
-Figure 7:
-
-A company must have the functionality of creating and updating a new 
-product with the fields of name, price and discount requested in 
-requirements within the platform
+A company should have the functionality of creating and updating a new 
+product with the following fields: name, price, and discount.
 
 .. image:: assets/images/ch-product-create.png
   :width: 100%
@@ -145,7 +132,7 @@ do all of them.
 1. Users details (easy)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Allow users to change their own name, email address, or password.
+Allow users to change their own name, email address, and password.
 
 .. image:: assets/images/ch-profile-update.png
   :width: 100%
@@ -163,7 +150,7 @@ Allow users to modify or delete existing products.
 3. Filtering products (medium)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Allow users to filter which product are visible.
+Allow users to filter products.
 
 .. image:: assets/images/ch-company-filter.png
   :width: 100%
@@ -220,6 +207,8 @@ existing logic is discouraged.
 Your solution should compile to a single HTML page, and a bundled JS
 file, you can use any build tools you’d like.
 `Webpack`_ is not a bad choice.
+
+Do your best!!! 
 
 
 Development
