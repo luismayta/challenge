@@ -33,14 +33,17 @@ Your app is to have three models: users, company, and product. Your
 database should closely resemble the following `entity-relationship
 diagram <https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Crow's_foot_notation>`__:
 
-
+.. image:: backend/assets/images/equipindustry-challenge-database.png
+  :width: 100%
+  :alt: database equipindustry challenge
+  
+  
 Expected functionalities
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following illustrations should only serve as an example. You do not
 need to follow the designs presented below. You can split functionality
 out to other pages. Just make sure it is all there.
-
 Figure 0:
 
 create principal page with all functionalities
@@ -53,6 +56,7 @@ An unauthenticated user should first be prompted to log in, sign up, or
 reset their password:
 
 ![Login platform](assets/ch-login.png)
+
 ![Reset password](assets/ch-reset-password.png)
 
 Figure 2:
@@ -105,6 +109,7 @@ product with the fields of name, price and discount requested in
 requirements within the platform
 
 ![create product](assets/ch-product-create.png)
+
 ![update product](assets/ch-product-update.png)
 
 Finally, the product page should show all product that belong to the company.
