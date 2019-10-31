@@ -82,7 +82,7 @@ After signing up, users will not belong to an company, so when they
 log in for the first time, they should be prompted to join an
 company (or create a new one).
 
-.. image:: assets/ch-choose-company.png
+.. image:: assets/images/ch-choose-company.png
   :width: 100%
   :alt: choose company
 
@@ -93,7 +93,7 @@ Figure 4:
 Users should be able to edit all companies (i.e. their names and
 others).
 
-.. image:: assets/ch-update-company.png
+.. image:: assets/images/ch-update-company.png
   :width: 100%
   :alt: edit company
 
@@ -104,7 +104,7 @@ Once a user has joined an company, the home page should change to
 become an overview of actions for that company: viewing products,
 editing the company, or leaving the company.
 
-.. image:: assets/ch-company-home.png
+.. image:: assets/images/ch-company-home.png
   :width: 100%
   :alt: company home
 
@@ -115,7 +115,7 @@ Leaving an company should return the user to the state they are in
 just after they sign up, i.e. not belonging to any organisations. The
 departed user's product should be deleted.
 
-.. image:: assets/ch-company-leave.png
+.. image:: assets/images/ch-company-leave.png
   :width: 100%
   :alt: leave company
 
@@ -125,11 +125,11 @@ A company must have the functionality of creating and updating a new
 product with the fields of name, price and discount requested in 
 requirements within the platform
 
-.. image:: assets/ch-product-create.png
+.. image:: assets/images/ch-product-create.png
   :width: 100%
   :alt: create product
 
-.. image:: assets/ch-product-update.png
+.. image:: assets/images/ch-product-update.png
   :width: 100%
   :alt: update product
 
@@ -147,7 +147,7 @@ do all of them.
 
 Allow users to change their own name, email address, or password.
 
-.. image:: assets/ch-profile-update.png
+.. image:: assets/images/ch-profile-update.png
   :width: 100%
   :alt: user details
 
@@ -156,7 +156,7 @@ Allow users to change their own name, email address, or password.
 
 Allow users to modify or delete existing products.
 
-.. image:: assets/ch-profile-report.png
+.. image:: assets/images/ch-profile-report.png
   :width: 100%
   :alt: profile report
 
@@ -165,7 +165,7 @@ Allow users to modify or delete existing products.
 
 Allow users to filter which product are visible.
 
-.. image:: assets/ch-company-filter.png
+.. image:: assets/images/ch-company-filter.png
   :width: 100%
   :alt: company filters
 
