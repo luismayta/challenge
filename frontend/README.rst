@@ -33,26 +33,39 @@ Your app is to have three models: users, company, and product. Your
 database should closely resemble the following `entity-relationship
 diagram <https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Crow's_foot_notation>`__:
 
-
+.. image:: backend/assets/images/equipindustry-challenge-database.png
+  :width: 100%
+  :alt: database equipindustry challenge
+  
+  
 Expected functionalities
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following illustrations should only serve as an example. You do not
 need to follow the designs presented below. You can split functionality
 out to other pages. Just make sure it is all there.
+Figure 0:
 
-.. image:: backend/assets/images/equipindustry-challenge-database.png
-  :width: 100%
-  :alt: database equipindustry challenge
+create principal page with all functionalities
+
+![Home](assets/ch-home.png)
+
+Figure 1:
 
 An unauthenticated user should first be prompted to log in, sign up, or
 reset their password:
+
+![Login platform](assets/ch-login.png)
+
+![Reset password](assets/ch-reset-password.png)
 
 Figure 2:
 
 
 As per Figure 1, users have names, so "Name" should be a field on your
 sign up page.
+
+![Register platform](assets/ch-register.png)
 
 Figure 3:
 
@@ -61,11 +74,15 @@ After signing up, users will not belong to an company, so when they
 log in for the first time, they should be prompted to join an
 company (or create a new one).
 
+![choose company](assets/ch-choose-company.png)
+
 Figure 4:
 
 
 Users should be able to edit all companies (i.e. their names and
 others).
+
+![edit company](assets/ch-update-company.png)
 
 Figure 5:
 
@@ -74,12 +91,26 @@ Once a user has joined an company, the home page should change to
 become an overview of actions for that company: viewing products,
 editing the company, or leaving the company.
 
+![company home](assets/ch-company-home.png)
+
 Figure 6:
 
 
 Leaving an company should return the user to the state they are in
 just after they sign up, i.e. not belonging to any organisations. The
 departed user's product should be deleted.
+
+![leave company](assets/ch-company-leave.png)
+
+Figure 7:
+
+A company must have the functionality of creating and updating a new 
+product with the fields of name, price and discount requested in 
+requirements within the platform
+
+![create product](assets/ch-product-create.png)
+
+![update product](assets/ch-product-update.png)
 
 Finally, the product page should show all product that belong to the company.
 
@@ -95,15 +126,21 @@ do all of them.
 
 Allow users to change their own name, email address, or password.
 
+![user details](assets/ch-profile-update.png)
+
 2. Modifying/Deleting products (easy)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Allow users to modify or delete existing products.
 
+![profile report](assets/ch-profile-report.png)
+
 3. Filtering products (medium)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Allow users to filter which product are visible.
+
+![company filters](assets/ch-company-filter.png)
 
 4. Unit tests
 ^^^^^^^^^^^^^
