@@ -1,11 +1,14 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const authRouter = require("./router/auth");
-const companiesRouter = require("./router/companies");
-const productsRouter = require("./router/products");
-const usersRouter = require("./router/users");
+import express from "express";
+import bodyParser from "body-parser";
+import authRouter from "./router/auth";
+import companiesRouter from "./router/companies";
+import productsRouter from "./router/products";
+import usersRouter from "./router/users";
+import {corsMiddleware} from "./middleware/";
+
 const app = express();
 
+app.use(corsMiddleware());
 app.use(bodyParser.json());
 app.use("/auth", authRouter);
 app.use("/companies", companiesRouter);

@@ -1,4 +1,5 @@
-const sqlite3 = require("sqlite3").verbose();
+import sqlite3 from "sqlite3";
+sqlite3.verbose();
 const db = new sqlite3.Database("db.db");
 
 const get = (query, ...params) =>
@@ -37,7 +38,7 @@ run(
     "name TEXT NOT NULL, \n" +
     "ruc TEXT NOT NULL, \n" +
     "website TEXT \n " +
-    ")"
+    ")",
 );
 
 run(
@@ -47,7 +48,7 @@ run(
     "name TEXT NOT NULL, \n" +
     "email TEXT NOT NULL, \n" +
     "password TEXT NOT NULL \n" +
-    ")"
+    ")",
 );
 
 run(
@@ -58,14 +59,14 @@ run(
     "sku TEXT NOT NULL, \n" +
     "price REAL NOT NULL, \n" +
     "discount REAL NOT NULL \n" +
-    ")"
+    ")",
 );
 
 run(
   "CREATE TABLE IF NOT EXISTS sessions ( \n" +
     "session_id TEXT PRIMARY KEY NOT NULL, \n" +
     "user_id INTEGER NOT NULL \n" +
-    ")"
+    ")",
 );
 
-module.exports = { run, get, all };
+module.exports = {run, get, all};
