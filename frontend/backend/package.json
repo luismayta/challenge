@@ -2,17 +2,24 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "sqlite3": "^4.1.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "nodemon": "^1.19.4",
     "prettier": "1.16.4"
   },
   "license": "MIT",
   "name": "equipindustry-backend",
   "scripts": {
-    "start": "node index.js"
+    "start": "babel-node -- index.js"
   },
   "version": "0.0.0"
 }
