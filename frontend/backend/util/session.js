@@ -1,20 +1,20 @@
-const DB = require("../db");
+import DB from "../db";
 
 const sessionMiddleware = (req, res, next) => {
   const sessionId = req.headers.authorization;
 
   if (!sessionId) {
-    return res.status(401).json({ error: "No session ID provided" });
+    return res.status(401).json({error: "No session ID provided"});
   }
 
   DB.get(
     "SELECT users.* FROM users INNER JOIN sessions ON sessions.user_id = users.id WHERE sessions.session_id = ?",
-    sessionId
+    sessionId,
   ).then(user => {
     if (!user) {
       return res
         .status(401)
-        .json({ error: "Session ID does not match any valid sessions" });
+        .json({error: "Session ID does not match any valid sessions"});
     }
 
     req.user = user;
@@ -22,4 +22,4 @@ const sessionMiddleware = (req, res, next) => {
   });
 };
 
-module.exports = { sessionMiddleware };
+module.exports = {sessionMiddleware};

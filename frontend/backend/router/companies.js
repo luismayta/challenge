@@ -1,55 +1,55 @@
-const express = require("express");
+import express from "express";
+import DB from "../db";
+import {sessionMiddleware} from "../util/session";
 const router = express.Router();
-const DB = require("../db");
-const { sessionMiddleware } = require("../util/session");
 
 router.use(sessionMiddleware);
 
 router.get("/", (req, res) =>
-           DB.all("SELECT * FROM companies")
-           .then(companies =>
-                 companies.map(({ id, name, ruc, website }) => ({
-                   id,
-                   name,
-                   ruc,
-                   website
-                 }))
-                )
-           .then(companies => res.json(companies))
-          );
+  DB.all("SELECT * FROM companies")
+    .then(companies =>
+      companies.map(({id, name, ruc, website}) => ({
+        id,
+        name,
+        ruc,
+        website,
+      })),
+    )
+    .then(companies => res.json(companies)),
+);
 
 router.post("/join", (req, res) => {
-  const { companyId } = req.body;
+  const {companyId} = req.body;
 
   if (req.user.company_id) {
-    return res.status(400).json({ error: "You're already in an company" });
+    return res.status(400).json({error: "You're already in an company"});
   }
 
   DB.get("SELECT * FROM companies WHERE id = ?", companyId).then(company => {
     if (!company) {
-      throw { statusCode: 400 };
+      throw {statusCode: 400};
     }
 
     return DB.run(
       "UPDATE users SET company_id = ? WHERE id = ?",
       req.body.companyId,
-      req.user.id
+      req.user.id,
     ).then(() =>
-           res.json({
-             id: company.id,
-             name: company.name,
-             ruc: company.ruc,
-             website: company.website
-           })
-          );
+      res.json({
+        id: company.id,
+        name: company.name,
+        ruc: company.ruc,
+        website: company.website,
+      }),
+    );
   });
 });
 
 router.post("/create_join", (req, res) => {
-  const { name, ruc, website } = req.body;
+  const {name, ruc, website} = req.body;
 
   if (req.user.company_id) {
-    return res.status(400).json({ error: "You're already in an company" });
+    return res.status(400).json({error: "You're already in an company"});
   }
 
   DB.get("SELECT * FROM companies WHERE name = ?", name)
@@ -57,7 +57,7 @@ router.post("/create_join", (req, res) => {
       if (company) {
         throw {
           statusCode: 400,
-          error: "An company with that name already exists"
+          error: "An company with that name already exists",
         };
       }
     })
@@ -66,27 +66,27 @@ router.post("/create_join", (req, res) => {
         "INSERT INTO companies (name, ruc, website) VALUES (?, ?, ?)",
         name,
         ruc,
-        website
-      )
+        website,
+      ),
     )
     .then(() => DB.get("SELECT * FROM companies WHERE name = ?", name))
     .then(company =>
-          DB.run(
-            "UPDATE users SET company_id = ? WHERE id = ?",
-            company.id,
-            req.user.id
-          ).then(() =>
-                 res.json({
-                   id: company.id,
-                   name: company.name,
-                   ruc: company.ruc,
-                   website: company.website
-                 })
-                )
-         )
+      DB.run(
+        "UPDATE users SET company_id = ? WHERE id = ?",
+        company.id,
+        req.user.id,
+      ).then(() =>
+        res.json({
+          id: company.id,
+          name: company.name,
+          ruc: company.ruc,
+          website: company.website,
+        }),
+      ),
+    )
     .catch(err => {
       if (err && err.statusCode) {
-        return res.status(err.statusCode).json({ error: err.error });
+        return res.status(err.statusCode).json({error: err.error});
       }
       throw err;
     });
@@ -94,18 +94,18 @@ router.post("/create_join", (req, res) => {
 
 router.post("/leave", (req, res) => {
   DB.run("UPDATE users SET company_id = NULL WHERE id = ?", req.user.id).then(
-    () => res.sendStatus(200)
+    () => res.sendStatus(200),
   );
 });
 
 router.put("/:id", (req, res) => {
   DB.get(
     "SELECT companies.* FROM companies WHERE companies.id = ?",
-    req.params.id
+    req.params.id,
   )
     .then(company => {
       if (!company) {
-        throw { statusCode: 404 };
+        throw {statusCode: 404};
       }
 
       return DB.run(
@@ -113,26 +113,26 @@ router.put("/:id", (req, res) => {
         req.body.name || company.name,
         req.body.ruc || company.ruc,
         req.body.website || company.website,
-        company.id
+        company.id,
       );
     })
     .then(() =>
-          DB.get(
-            "SELECT companies.* FROM companies WHERE companies.id = ?",
-            req.params.id
-          )
-         )
+      DB.get(
+        "SELECT companies.* FROM companies WHERE companies.id = ?",
+        req.params.id,
+      ),
+    )
     .then(company =>
-          res.json({
-            id: company.id,
-            name: company.name,
-            ruc: company.ruc,
-            website: company.website
-          })
-         )
+      res.json({
+        id: company.id,
+        name: company.name,
+        ruc: company.ruc,
+        website: company.website,
+      }),
+    )
     .catch(err => {
       if (err && err.statusCode) {
-        return res.status(err.statusCode).json({ error: err.error });
+        return res.status(err.statusCode).json({error: err.error});
       }
       throw err;
     });
