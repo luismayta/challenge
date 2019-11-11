@@ -1,6 +1,7 @@
 
-# Created by https://www.gitignore.io/api/python,docker,node
-# Edit at https://www.gitignore.io/?templates=python,docker,node
+
+# Created by https://www.gitignore.io/api/python,docker,node,react
+# Edit at https://www.gitignore.io/?templates=python,docker,node,react
 
 #!! ERROR: docker is undefined. Use list command to see defined gitignore types !!#
 
@@ -81,9 +82,6 @@ typings/
 
 # nuxt.js build output
 .nuxt
-
-# react / gatsby
-public/
 
 # vuepress build output
 .vuepress/dist
@@ -201,5 +199,19 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# End of https://www.gitignore.io/api/python,docker,node
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_componets
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+# End of https://www.gitignore.io/api/python,docker,node,react
 *.db
