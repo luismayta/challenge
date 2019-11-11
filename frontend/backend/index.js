@@ -4,9 +4,11 @@ import authRouter from "./router/auth";
 import companiesRouter from "./router/companies";
 import productsRouter from "./router/products";
 import usersRouter from "./router/users";
+import {corsMiddleware} from "./middleware/";
 
 const app = express();
-app.use(cors());
+
+app.use(corsMiddleware());
 app.use(bodyParser.json());
 app.use("/auth", authRouter);
 app.use("/companies", companiesRouter);
